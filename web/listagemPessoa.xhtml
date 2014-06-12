@@ -6,29 +6,40 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
         <ui:composition template="./Global.xhtml" >
+            <ui:define name="content">    
 
-
-            <ui:define name="content">
-                
-                <p:panelGrid columns="2" >
-                    <p:outputLabel value="Nome" />
-                    <p:inputText value="#{pessoaController.filtro.nome}"  />
+                <p:panelGrid columns="2" >      
+                    <p:outputLabel value="Nome: "/>
+                    <p:autoComplete converter="#{pessoaConverter}" value="#{pessoaController.filtro}"
+                                    var="item" itemLabel="#{item.nome}" completeMethod="#{pessoaController.autoCompletar}">
+                        <p:column headerText="Nome">
+                            #{item.nome}
+                        </p:column>
+                        <p:column headerText="CPF">
+                            #{item.cpf}
+                        </p:column>
+                    </p:autoComplete>                                   
                 </p:panelGrid>
-                
+
+
                 <p:commandButton value="Filtrar" action="#{pessoaController.filtrar()}" update="listagem" />
                 <p:commandButton value="Novo" ajax="false" action="#{pessoaController.novo()}" 
                                  style="float: right"/> 
-                
-                
+
+
                 <p:dataTable id="listagem" value="#{pessoaController.listagem}" var="item">
-                    <p:column sortBy="id" headerText="Código" >
-                        #{item.id}
-                    </p:column>  
-                    <p:column sortBy="nome" headerText="Nome" >
-                        #{item.nome}
-                    </p:column>  
+                    <p:column sortBy="id" headerText="Código" >#{item.id}</p:column>  
+                    <p:column sortBy="nome" headerText="Nome" >#{item.nome}</p:column>  
+                    <p:column sortBy="funcao" headerText="Cargo" >#{item.funcao.nome}</p:column>
+                    <p:column sortBy="cpf" headerText="CPF" >#{item.cpf}</p:column>  
+                    <p:column sortBy="rg" headerText="RG" >#{item.rg}</p:column> 
+                    <p:column sortBy="datanascimento" headerText="Data de Nascimento" >
+                        <p:outputLabel value="#{item.dataNascimento}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </p:outputLabel>
+                    </p:column>
+
                     <p:column>
                         <p:commandButton value="Editar" action="editarPessoa.xhtml">
                             <f:setPropertyActionListener target="#{pessoaController.entidade}" 

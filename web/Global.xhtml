@@ -14,21 +14,20 @@
     </h:head>
 
     <h:body>
-
-        <h:form>          
-
+        <h:form>    
             <div id="top">
-                <h1> Meu site </h1>
+                <h1> Syscon Enterprise - Sistema de Gerenciamento de Logística </h1>
             </div>
             <p:growl id="messages"/>
             <p:menubar>
-                <p:submenu label="Cadastro" icon="ui-icon-document">                    
+                <p:submenu label="Cadastro">                    
                     <p:menuitem value="Funcionario" url="editarPessoa.xhtml" />
-                    <p:separator />
+                    <p:menuitem value="Funções" url="editarFuncao.xhtml" />                    
                     <p:menuitem value="Cliente" url="#" />
                 </p:submenu>
-                <p:submenu label="Listagem" icon="ui-icon-document">                    
+                <p:submenu label="Listagem">                    
                     <p:menuitem value="Funcionario" url="listagemPessoa.xhtml" />
+                    <p:menuitem value="Funções" url="listagemFuncao.xhtml" />   
                     <p:separator />
                     <p:menuitem value="Cliente" url="#" />
                 </p:submenu>
@@ -41,9 +40,7 @@
 
         </h:form>    
         <div id="bottom">
-            Copyright 2014 ASAF
+            <h1>Copyright 2014 ACL Software</h1>
         </div>
-
     </h:body>
-
 </html>

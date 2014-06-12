@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF2/web/editarPessoa.xhtml</file>
-            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF2/src/java/br/edu/ifnmg/tads/MeuPrimeiroJSF/controllers/PessoaController.java</file>
-            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF2/src/java/br/edu/ifnmg/tads/MeuPrimeiroJSF/model/PessoaDAO.java</file>
-            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF2/web/Global.xhtml</file>
-            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF2/web/listagemPessoa.xhtml</file>
-            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF2/web/index.xhtml</file>
+            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF/src/java/br/edu/ifnmg/tads/MeuPrimeiroJSF/controllers/PessoaController.java</file>
+            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF/web/listagemPessoa.xhtml</file>
+            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF/web/editarPessoa.xhtml</file>
+            <file>file:/home/celio/NetBeansProjects/MeuPrimeiroJSF/web/Global.xhtml</file>
         </group>
     </open-files>
 </project-private>

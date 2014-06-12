@@ -2,25 +2,65 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
         <ui:composition template="./Global.xhtml" >
-
-
             <ui:define name="content">
-                
-                <p:commandButton 
-                    value="Voltar" action="listagemPessoa.xhtml">                
-                </p:commandButton>    
-                Nome: 
-                <p:inputText value="#{pessoaController.entidade.nome}" 
-                                   required="true" 
-                                   requiredMessage="O campo 'Nome' é de preenchimento obrigatório!"  /> <br />
+                <p:panelGrid columns="2">
+                    <f:facet name="header">
+                        Editar Pessoa
+                    </f:facet>                     
+
+                    <p:outputLabel value="Nome:" />
+                    <p:inputText value="#{pessoaController.entidade.nome}" 
+                                 required="true" 
+                                 requiredMessage="O campo 'Nome' é de preenchimento obrigatório!"  /> 
 
 
-                <p:commandButton ajax="false" id="btn" value="Salvar"  action="#{pessoaController.salvar()}"  />
+                    <p:outputLabel value="Função:" />
+                    <p:selectOneMenu value="#{pessoaController.entidade.funcao}" converter="#{funcaoConverter}">
+                        <f:selectItems value="#{funcaoController.listagem}" />
+                    </p:selectOneMenu>
+
+
+                    <p:outputLabel value="CPF:" />
+                    <p:inputMask value="#{pessoaController.entidade.cpf}" mask="999.999.999-99"                    
+                                 required="true" 
+                                 requiredMessage="O campo 'CPF' é de preenchimento obrigatório!"  /> 
+                    
+                    <p:outputLabel value="RG:" />
+                    <p:inputText value="#{pessoaController.entidade.rg}" 
+                                 required="true" 
+                                 requiredMessage="O campo 'RG' é de preenchimento obrigatório!"  /> 
+
+                    <p:outputLabel value="Data Nasc.:" />
+                    <p:calendar value="#{pessoaController.entidade.dataNascimento}" 
+                                required="true" 
+                                requiredMessage="O campo 'Data de Nascimento' é de preenchimento obrigatório!"  /> 
+
+
+                    <f:facet name="footer">
+                        <p:commandButton  id="btnSalvar" value="Salvar"  onclick="msgSalvar.show();"/>
+                        <p:commandButton  id="btnApagar" value="Apagar"  onclick="msgApagar.show();"/>
+                        <p:commandButton  ajax="false" id="btnVoltar" value="Voltar"  action="listagemPessoa.xhtml"/>            
+                    </f:facet>
+                </p:panelGrid>
+
+
+                <p:confirmDialog message="Deseja realmente salvar as alterações?" header="Confirmação" severity="alert"
+                                 widgetVar="msgSalvar" >
+                    <p:commandButton ajax="false" value="Sim" action="#{pessoaController.salvar()}"/>
+                    <p:commandButton value="Não" onclick="msgSalvar.hide();" />
+                </p:confirmDialog>
+
+
+                <p:confirmDialog message="Deseja realmente apagar o registro?" header="Confirmação" severity="alert"
+                                 widgetVar="msgApagar" >
+                    <p:commandButton ajax="false" value="Sim" action="#{pessoaController.apagar()}"/>
+                    <p:commandButton value="Não" onclick="msgApagar.hide();" />
+                </p:confirmDialog>
 
             </ui:define>
         </ui:composition>

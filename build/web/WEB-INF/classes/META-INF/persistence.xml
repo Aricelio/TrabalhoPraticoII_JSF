@@ -4,7 +4,7 @@
     <jta-data-source>MeuPrimeiroJPA</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create-or-extends-tables"/>
     </properties>
   </persistence-unit>
 </persistence>
